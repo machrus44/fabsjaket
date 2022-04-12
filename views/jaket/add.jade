@@ -1,0 +1,41 @@
+extends ../layout/base 
+block content 
+	section.content-header 
+		h1 
+			| FabsJaket
+	section.content
+			.box-body
+				form(role='form',method='post' action='/jaket/add')
+					.row
+						
+						.col-xs-6
+							.box-body
+								- if (messages.msg_error) 
+									.alert.alert-danger.alert-dismissable 
+										button.close(type='button', data-dismiss='alert', aria-hidden='true') 
+											| ×
+										h4
+											i.icon.fa.fa-ban
+											| Alert! 
+										| !{messages.msg_error}
+								.form-group
+									label
+										| nama
+									input(type='text',value='#{nama}',name='nama',placeholder='Enter nama', autofocus).form-control
+								.form-group
+									label
+										| jenis
+									input(type='text',name='jenis',placeholder='Enter jenis').form-control
+								.form-group
+									label
+										| stok
+									input(type='text',value='#{stok}',name='stok',placeholder='Enter stok').form-control
+								.form-group
+									label
+										| harga
+									input(type='text',name='harga',placeholder='Enter harga').form-control
+							.box-footer
+								button(type='submit').btn.btn-primary
+									| Submit
+								a(href='/jaket').btn.btn-primary.pull-right
+									| Back
